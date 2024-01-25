@@ -300,40 +300,37 @@ public class EnergyActivity extends BaseActivity<ActivityEnergyBinding> implemen
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-            case R.id.rb_daily:
-                if (electricityConstant != 0) {
-                    // 切换日
-                    float totalToday = energyTotalToday * 1.0f / electricityConstant;
-                    String energyTotalToday = Utils.getDecimalFormat("0.##").format(totalToday);
-                    mBind.tvEnergyTotal.setText(energyTotalToday);
-                }
-                Calendar calendarDaily = Calendar.getInstance();
-                String time = Utils.calendar2StrDate(calendarDaily, "HH");
-                String date = Utils.calendar2StrDate(calendarDaily, "MM-dd");
-                mBind.tvDuration.setText(String.format("00:00 to %s:00,%s", time, date));
-                mBind.tvUnit.setText("Hour");
-                if (energyInfosToday != null) {
-                    adapter.replaceData(energyInfosToday);
-                }
-                break;
-            case R.id.rb_monthly:
-                if (electricityConstant != 0) {
-                    // 切换月
-                    float totalMonthly = energyTotalMonth * 1.0f / electricityConstant;
-                    String energyTotalMonthly = Utils.getDecimalFormat("0.##").format(totalMonthly);
-                    mBind.tvEnergyTotal.setText(energyTotalMonthly);
-                }
-                Calendar calendarMonthly = Calendar.getInstance();
-                String end = Utils.calendar2StrDate(calendarMonthly, "MM-dd");
-                calendarMonthly.add(Calendar.DAY_OF_MONTH, -29);
-                String start = Utils.calendar2StrDate(calendarMonthly, "MM-dd");
-                mBind.tvDuration.setText(String.format("%s to %s", start, end));
-                mBind.tvUnit.setText("Date");
-                if (energyInfosMonth != null) {
-                    adapter.replaceData(energyInfosMonth);
-                }
-                break;
+        if (checkedId == R.id.rb_daily) {
+            if (electricityConstant != 0) {
+                // 切换日
+                float totalToday = energyTotalToday * 1.0f / electricityConstant;
+                String energyTotalToday = Utils.getDecimalFormat("0.##").format(totalToday);
+                mBind.tvEnergyTotal.setText(energyTotalToday);
+            }
+            Calendar calendarDaily = Calendar.getInstance();
+            String time = Utils.calendar2StrDate(calendarDaily, "HH");
+            String date = Utils.calendar2StrDate(calendarDaily, "MM-dd");
+            mBind.tvDuration.setText(String.format("00:00 to %s:00,%s", time, date));
+            mBind.tvUnit.setText("Hour");
+            if (energyInfosToday != null) {
+                adapter.replaceData(energyInfosToday);
+            }
+        } else if (checkedId == R.id.rb_monthly) {
+            if (electricityConstant != 0) {
+                // 切换月
+                float totalMonthly = energyTotalMonth * 1.0f / electricityConstant;
+                String energyTotalMonthly = Utils.getDecimalFormat("0.##").format(totalMonthly);
+                mBind.tvEnergyTotal.setText(energyTotalMonthly);
+            }
+            Calendar calendarMonthly = Calendar.getInstance();
+            String end = Utils.calendar2StrDate(calendarMonthly, "MM-dd");
+            calendarMonthly.add(Calendar.DAY_OF_MONTH, -29);
+            String start = Utils.calendar2StrDate(calendarMonthly, "MM-dd");
+            mBind.tvDuration.setText(String.format("%s to %s", start, end));
+            mBind.tvUnit.setText("Date");
+            if (energyInfosMonth != null) {
+                adapter.replaceData(energyInfosMonth);
+            }
         }
     }
 }

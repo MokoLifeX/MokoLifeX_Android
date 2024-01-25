@@ -211,16 +211,12 @@ public class PowerStatusActivity extends BaseActivity<ActivityPowerStatusBinding
             ToastUtils.showToast(this, "Set up failed");
         }, 30 * 1000);
         showLoadingProgressDialog();
-        switch (checkedId) {
-            case R.id.rb_switch_off:
-                setPowerStatus(0);
-                break;
-            case R.id.rb_switch_on:
-                setPowerStatus(1);
-                break;
-            case R.id.rb_last_status:
-                setPowerStatus(2);
-                break;
+        if (checkedId == R.id.rb_switch_off) {
+            setPowerStatus(0);
+        } else if (checkedId == R.id.rb_switch_on) {
+            setPowerStatus(1);
+        } else if (checkedId == R.id.rb_last_status) {
+            setPowerStatus(2);
         }
     }
 

@@ -378,54 +378,51 @@ public class EnergyTotalActivity extends BaseActivity<ActivityEnergyTotalBinding
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-            case R.id.rb_daily:
-                if (electricityConstant != 0) {
-                    // 切换日
-                    float totalToday = energyTotalToday * 1.0f / electricityConstant;
-                    String energyTotalToday = Utils.getDecimalFormat("0.##").format(totalToday);
-                    mBind.tvEnergyTotal.setText(energyTotalToday);
-                }
-                mBind.tvUnit.setText("Hour");
-                if (energyInfosToday != null) {
-                    adapter.replaceData(energyInfosToday);
-                }
-                mBind.clEnergyList.setVisibility(View.VISIBLE);
-                if (TextUtils.isEmpty(mTimestamp))
-                    return;
-                String time = mTimestamp.substring(11, 13);
-                String date = mTimestamp.substring(5, 10);
-                mBind.tvDuration.setText(String.format("00:00 to %s:00,%s", time, date));
-                break;
-            case R.id.rb_monthly:
-                if (electricityConstant != 0) {
-                    // 切换月
-                    float totalMonthly = energyTotalMonth * 1.0f / electricityConstant;
-                    String energyTotalMonthly = Utils.getDecimalFormat("0.##").format(totalMonthly);
-                    mBind.tvEnergyTotal.setText(energyTotalMonthly);
-                }
-                mBind.tvUnit.setText("Date");
-                if (energyInfosMonth != null) {
-                    adapter.replaceData(energyInfosMonth);
-                }
-                mBind.clEnergyList.setVisibility(View.VISIBLE);
-                if (TextUtils.isEmpty(mTimestamp) || TextUtils.isEmpty(mStartTime))
-                    return;
-                String end = mTimestamp.substring(5, 10);
-                String start = mStartTime.substring(5, 10);
-                mBind.tvDuration.setText(String.format("%s to %s", start, end));
-                break;
-            case R.id.rb_total:
-                if (electricityConstant != 0) {
-                    // 切换总电能
-                    float total = energyTotal * 1.0f / electricityConstant;
-                    String energyTotalStr = Utils.getDecimalFormat("0.##").format(total);
-                    mBind.tvEnergyTotal.setText(energyTotalStr);
-                }
-                mBind.clEnergyList.setVisibility(View.GONE);
-                break;
+        if (checkedId == R.id.rb_daily) {
+            if (electricityConstant != 0) {
+                // 切换日
+                float totalToday = energyTotalToday * 1.0f / electricityConstant;
+                String energyTotalToday = Utils.getDecimalFormat("0.##").format(totalToday);
+                mBind.tvEnergyTotal.setText(energyTotalToday);
+            }
+            mBind.tvUnit.setText("Hour");
+            if (energyInfosToday != null) {
+                adapter.replaceData(energyInfosToday);
+            }
+            mBind.clEnergyList.setVisibility(View.VISIBLE);
+            if (TextUtils.isEmpty(mTimestamp))
+                return;
+            String time = mTimestamp.substring(11, 13);
+            String date = mTimestamp.substring(5, 10);
+            mBind.tvDuration.setText(String.format("00:00 to %s:00,%s", time, date));
+        } else if (checkedId == R.id.rb_monthly) {
+            if (electricityConstant != 0) {
+                // 切换月
+                float totalMonthly = energyTotalMonth * 1.0f / electricityConstant;
+                String energyTotalMonthly = Utils.getDecimalFormat("0.##").format(totalMonthly);
+                mBind.tvEnergyTotal.setText(energyTotalMonthly);
+            }
+            mBind.tvUnit.setText("Date");
+            if (energyInfosMonth != null) {
+                adapter.replaceData(energyInfosMonth);
+            }
+            mBind.clEnergyList.setVisibility(View.VISIBLE);
+            if (TextUtils.isEmpty(mTimestamp) || TextUtils.isEmpty(mStartTime))
+                return;
+            String end = mTimestamp.substring(5, 10);
+            String start = mStartTime.substring(5, 10);
+            mBind.tvDuration.setText(String.format("%s to %s", start, end));
+        } else if (checkedId == R.id.rb_total) {
+            if (electricityConstant != 0) {
+                // 切换总电能
+                float total = energyTotal * 1.0f / electricityConstant;
+                String energyTotalStr = Utils.getDecimalFormat("0.##").format(total);
+                mBind.tvEnergyTotal.setText(energyTotalStr);
+            }
+            mBind.clEnergyList.setVisibility(View.GONE);
         }
     }
+
 
     public void onEmpty(View view) {
         if (isWindowLocked()) {

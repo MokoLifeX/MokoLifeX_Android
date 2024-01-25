@@ -23,6 +23,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import androidx.core.content.FileProvider;
+
 public class Utils {
 
     /**
@@ -86,34 +88,41 @@ public class Utils {
         Intent intent;
         if (files.length == 1) {
             intent = new Intent(Intent.ACTION_SEND);
+            Uri uri;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                Uri fileUri = IOUtils.insertDownloadFile(context, files[0]);
-                intent.putExtra(Intent.EXTRA_STREAM, fileUri);
+                uri = IOUtils.insertDownloadFile(context, files[0]);
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                uri = FileProvider.getUriForFile(context, "com.moko.lifex.fileprovider", files[0]);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             } else {
-                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(files[0]));
+                uri = Uri.fromFile(files[0]);
             }
+            intent.putExtra(Intent.EXTRA_STREAM, uri);
             intent.putExtra(Intent.EXTRA_TEXT, body);
         } else {
             ArrayList<Uri> uris = new ArrayList<>();
+            ArrayList<CharSequence> charSequences = new ArrayList<>();
             for (int i = 0; i < files.length; i++) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     Uri fileUri = IOUtils.insertDownloadFile(context, files[i]);
                     uris.add(fileUri);
+                }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Uri uri = FileProvider.getUriForFile(context, "com.moko.lifex.fileprovider", files[0]);
+                    uris.add(uri);
                 } else {
                     uris.add(Uri.fromFile(files[i]));
                 }
+                charSequences.add(body);
             }
             intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
             intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-            ArrayList<CharSequence> charSequences = new ArrayList<>();
-            charSequences.add(body);
+
             intent.putExtra(Intent.EXTRA_TEXT, charSequences);
         }
         String[] addresses = {address};
         intent.putExtra(Intent.EXTRA_EMAIL, addresses);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.setType("message/rfc822");
-        Intent.createChooser(intent, tips);
         if (intent.resolveActivity(context.getPackageManager()) != null) {
             context.startActivity(intent);
         }

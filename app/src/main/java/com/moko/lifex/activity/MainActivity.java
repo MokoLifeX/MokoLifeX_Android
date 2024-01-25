@@ -317,7 +317,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements B
     protected void onDestroy() {
         super.onDestroy();
         MQTTSupport.getInstance().disconnectMqtt();
-        if (!devices.isEmpty()) {
+        if (devices != null && !devices.isEmpty()) {
             for (final MokoDevice device : devices) {
                 if (mHandler.hasMessages(device.id)) {
                     mHandler.removeMessages(device.id);
@@ -564,7 +564,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements B
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == AppConstants.REQUEST_CODE_MQTT_CONFIG_APP && resultCode == RESULT_OK) {
-            String mAppMqttConfigStr = data.getStringExtra(AppConstants.EXTRA_KEY_MQTT_CONFIG_APP);
+            mAppMqttConfigStr = data.getStringExtra(AppConstants.EXTRA_KEY_MQTT_CONFIG_APP);
             mAppMqttConfig = new Gson().fromJson(mAppMqttConfigStr, MQTTConfig.class);
             mBind.tvTitle.setText(getString(R.string.app_name));
             // 订阅所有设备的Topic
