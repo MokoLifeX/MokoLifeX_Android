@@ -8,14 +8,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.moko.lib.mqtt.event.MQTTUnSubscribeSuccessEvent;
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.AppConstants;
 import com.moko.lifex.R;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityModifyDeviceNameBinding;
 import com.moko.lifex.db.DBTools;
 import com.moko.lifex.entity.MokoDevice;
-import com.moko.lifex.utils.ToastUtils;
-import com.moko.support.event.MQTTUnSubscribeSuccessEvent;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

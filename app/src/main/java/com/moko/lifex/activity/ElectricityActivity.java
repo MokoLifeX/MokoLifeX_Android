@@ -6,6 +6,7 @@ import android.view.View;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.moko.lib.mqtt.event.MQTTMessageArrivedEvent;
 import com.moko.lifex.AppConstants;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityElectricityManagerBinding;
@@ -16,7 +17,6 @@ import com.moko.support.entity.MsgCommon;
 import com.moko.support.entity.OverloadOccur;
 import com.moko.support.entity.PowerInfo;
 import com.moko.support.event.DeviceOnlineEvent;
-import com.moko.support.event.MQTTMessageArrivedEvent;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

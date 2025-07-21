@@ -11,13 +11,12 @@ import android.os.Looper;
 import android.provider.Settings;
 
 import com.elvishew.xlog.XLog;
+import com.moko.lib.mqtt.event.MQTTUnSubscribeSuccessEvent;
+import com.moko.lib.scannerui.dialog.PermissionDialog;
 import com.moko.lifex.R;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityGuideBinding;
-import com.moko.lifex.dialog.PermissionDialog;
 import com.moko.lifex.utils.Utils;
-import com.moko.support.event.MQTTUnSubscribeFailureEvent;
-import com.moko.support.event.MQTTUnSubscribeSuccessEvent;
 import com.permissionx.guolindev.PermissionX;
 
 import org.greenrobot.eventbus.Subscribe;

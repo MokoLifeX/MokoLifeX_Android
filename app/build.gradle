@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 34
+    namespace "com.moko.lifex"
+    compileSdk 35
 
     defaultConfig {
-        applicationId = "com.moko.lifex"
-        namespace = "com.moko.lifex"
-        minSdkVersion 21
-        targetSdkVersion 34
-        versionCode 122
-        versionName "1.2.2"
+        minSdk 28
+        targetSdk 35
+        versionCode 123
+        versionName "1.2.3"
         def formatDate = new Date().format("yyyyMMddHHmm")
         setProperty("archivesBaseName", "MokoLifeX_${versionName}_${formatDate}")
     }
@@ -18,6 +17,11 @@ android {
         release {
             minifyEnabled false
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     viewBinding {
@@ -36,16 +40,10 @@ android {
 
 dependencies {
     implementation project(path: ':mokosupport')
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
-    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-    implementation 'cn.carbswang.android:NumberPickerView:1.1.1'
     implementation 'com.lxj:xpopup:1.8.10'
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation 'com.github.GrenderG:Toasty:1.4.1'
-    implementation 'com.guolindev.permissionx:permissionx:1.7.1'
+    implementation 'com.github.Carbs0126:NumberPickerView:master-SNAPSHOT'
+//    implementation 'org.apache.poi:poi:5.2.3'
+//    implementation 'org.apache.poi:poi-ooxml:5.2.3'
+    implementation 'com.github.MOKO-Android-Base-Library:MKScannerUILib:1.0.2'
+    implementation 'com.github.MOKO-Android-Base-Library:MKMqttLib:1.0.0'
 }

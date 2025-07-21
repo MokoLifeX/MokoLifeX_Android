@@ -8,21 +8,21 @@ import android.widget.RadioGroup;
 
 import com.elvishew.xlog.XLog;
 import com.google.gson.Gson;
+import com.moko.lib.mqtt.MQTTSupport;
+import com.moko.lib.mqtt.event.MQTTConnectionCompleteEvent;
+import com.moko.lib.mqtt.event.MQTTConnectionFailureEvent;
+import com.moko.lib.scannerui.dialog.AlertMessageDialog;
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.AppConstants;
 import com.moko.lifex.R;
 import com.moko.lifex.adapter.MQTTFragmentAdapter;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityMqttAppBinding;
-import com.moko.lifex.dialog.AlertMessageDialog;
 import com.moko.lifex.fragment.GeneralFragment;
 import com.moko.lifex.fragment.SSLFragment;
 import com.moko.lifex.fragment.UserFragment;
 import com.moko.lifex.utils.SPUtiles;
-import com.moko.lifex.utils.ToastUtils;
-import com.moko.support.MQTTSupport;
 import com.moko.support.entity.MQTTConfig;
-import com.moko.support.event.MQTTConnectionCompleteEvent;
-import com.moko.support.event.MQTTConnectionFailureEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -49,6 +49,8 @@ public class SetAppMQTTActivity extends BaseActivity<ActivityMqttAppBinding> imp
     private ArrayList<Fragment> fragments;
 
     private MQTTConfig mqttConfig;
+
+    private boolean mIsSetAppSettings;
 
     @Override
     protected ActivityMqttAppBinding getViewBinding() {
@@ -108,6 +110,7 @@ public class SetAppMQTTActivity extends BaseActivity<ActivityMqttAppBinding> imp
 
     @Subscribe(threadMode = ThreadMode.POSTING, priority = 10)
     public void onMQTTConnectionCompleteEvent(MQTTConnectionCompleteEvent event) {
+        if (!mIsSetAppSettings) return;
         EventBus.getDefault().cancelEventDelivery(event);
         String mqttConfigStr = new Gson().toJson(mqttConfig, MQTTConfig.class);
         runOnUiThread(() -> {
@@ -123,6 +126,7 @@ public class SetAppMQTTActivity extends BaseActivity<ActivityMqttAppBinding> imp
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMQTTConnectionFailureEvent(MQTTConnectionFailureEvent event) {
+        if (!mIsSetAppSettings) return;
         ToastUtils.showToast(SetAppMQTTActivity.this, getString(R.string.mqtt_connect_failed));
         dismissLoadingProgressDialog();
         finish();
@@ -228,6 +232,7 @@ public class SetAppMQTTActivity extends BaseActivity<ActivityMqttAppBinding> imp
         MQTTSupport.getInstance().disconnectMqtt();
         showLoadingProgressDialog();
         mBind.etMqttHost.postDelayed(() -> {
+            mIsSetAppSettings = true;
             try {
                 MQTTSupport.getInstance().connectMqtt(mqttConfigStr);
             } catch (FileNotFoundException e) {

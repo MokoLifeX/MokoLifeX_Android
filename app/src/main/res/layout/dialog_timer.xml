@@ -59,7 +59,7 @@
             android:layout_height="0dp"
             android:layout_weight="1.0">
 
-            <com.moko.lifex.view.WheelView
+            <com.moko.lib.scannerui.view.WheelView
                 android:id="@+id/wv_hour"
                 android:layout_width="0dp"
                 android:layout_height="212dp"
@@ -75,7 +75,7 @@
                 app:selectedTextSize="20sp"
                 app:unitHeight="30dp" />
 
-            <com.moko.lifex.view.WheelView
+            <com.moko.lib.scannerui.view.WheelView
                 android:id="@+id/wv_minute"
                 android:layout_width="0dp"
                 android:layout_height="212dp"

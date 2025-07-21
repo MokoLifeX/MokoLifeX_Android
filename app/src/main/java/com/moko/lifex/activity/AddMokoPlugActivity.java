@@ -9,12 +9,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.google.gson.JsonObject;
+import com.moko.lib.scannerui.dialog.CustomDialog;
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.AppConstants;
 import com.moko.lifex.R;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityAddMokoPlugBinding;
-import com.moko.lifex.dialog.CustomDialog;
-import com.moko.lifex.utils.ToastUtils;
 import com.moko.lifex.utils.Utils;
 import com.moko.support.MokoConstants;
 import com.moko.support.SocketSupport;

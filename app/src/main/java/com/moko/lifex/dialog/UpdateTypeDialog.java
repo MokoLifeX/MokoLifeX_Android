@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.moko.lib.scannerui.dialog.MokoBaseDialog;
 import com.moko.lifex.R;
 import com.moko.lifex.databinding.DialogUpdateTypeBinding;
 

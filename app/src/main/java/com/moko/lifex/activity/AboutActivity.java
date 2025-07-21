@@ -5,13 +5,13 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.view.View;
 
+import com.moko.lib.mqtt.event.MQTTUnSubscribeSuccessEvent;
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.BaseApplication;
 import com.moko.lifex.R;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityAboutBinding;
-import com.moko.lifex.utils.ToastUtils;
 import com.moko.lifex.utils.Utils;
-import com.moko.support.event.MQTTUnSubscribeSuccessEvent;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

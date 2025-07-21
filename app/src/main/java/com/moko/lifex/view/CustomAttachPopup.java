@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.lxj.xpopup.core.AttachPopupView;
 import com.moko.lifex.AppConstants;
 import com.moko.lifex.R;
-import com.moko.lifex.activity.MoreActivity;
 import com.moko.lifex.activity.EnergyPlugSettingActivity;
+import com.moko.lifex.activity.MoreActivity;
 import com.moko.lifex.entity.MokoDevice;
 
 import androidx.annotation.NonNull;

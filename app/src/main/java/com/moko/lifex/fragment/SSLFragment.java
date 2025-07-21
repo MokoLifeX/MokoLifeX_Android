@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
+import com.moko.lib.scannerui.dialog.BottomDialog;
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.R;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.FragmentSslAppBinding;
-import com.moko.lifex.dialog.BottomDialog;
 import com.moko.lifex.utils.FileUtils;
-import com.moko.lifex.utils.ToastUtils;
 
 import java.io.File;
 import java.util.ArrayList;

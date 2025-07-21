@@ -37,7 +37,7 @@
             android:textSize="15sp" />
     </RelativeLayout>
 
-    <com.moko.lifex.view.WheelView
+    <com.moko.lib.scannerui.view.WheelView
         android:id="@+id/wv_update_type"
         android:layout_width="0dp"
         android:layout_height="182dp"

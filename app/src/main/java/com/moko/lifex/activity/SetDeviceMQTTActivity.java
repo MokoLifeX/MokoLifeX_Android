@@ -16,21 +16,23 @@ import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.moko.lib.mqtt.MQTTSupport;
+import com.moko.lib.mqtt.event.MQTTConnectionCompleteEvent;
+import com.moko.lib.mqtt.event.MQTTMessageArrivedEvent;
+import com.moko.lib.scannerui.dialog.BottomDialog;
+import com.moko.lib.scannerui.dialog.CustomDialog;
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.AppConstants;
 import com.moko.lifex.R;
 import com.moko.lifex.adapter.MQTTFragmentAdapter;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityMqttDeviceBinding;
 import com.moko.lifex.db.DBTools;
-import com.moko.lifex.dialog.BottomDialog;
-import com.moko.lifex.dialog.CustomDialog;
 import com.moko.lifex.entity.MokoDevice;
 import com.moko.lifex.fragment.GeneralDeviceFragment;
 import com.moko.lifex.fragment.SSLDeviceFragment;
 import com.moko.lifex.fragment.UserDeviceFragment;
 import com.moko.lifex.utils.SPUtiles;
-import com.moko.lifex.utils.ToastUtils;
-import com.moko.support.MQTTSupport;
 import com.moko.support.MokoConstants;
 import com.moko.support.SocketSupport;
 import com.moko.support.entity.DeviceResponse;
@@ -38,8 +40,6 @@ import com.moko.support.entity.DeviceResult;
 import com.moko.support.entity.MQTTConfig;
 import com.moko.support.entity.MsgCommon;
 import com.moko.support.event.DeviceUpdateEvent;
-import com.moko.support.event.MQTTConnectionCompleteEvent;
-import com.moko.support.event.MQTTMessageArrivedEvent;
 import com.moko.support.event.SocketConnectionEvent;
 import com.moko.support.event.SocketResponseEvent;
 
@@ -757,7 +757,7 @@ public class SetDeviceMQTTActivity extends BaseActivity<ActivityMqttDeviceBindin
 
     private void showConnMqttDialog() {
         isDeviceConnectSuccess = false;
-        View view = LayoutInflater.from(this).inflate(R.layout.mqtt_conn_content, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.layout_mqtt_conn_content, null);
         donutProgress = view.findViewById(R.id.dp_progress);
         mqttConnDialog = new CustomDialog.Builder(this)
                 .setContentView(view)

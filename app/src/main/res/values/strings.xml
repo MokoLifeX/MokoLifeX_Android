@@ -1,17 +1,8 @@
 <resources>
     <string name="app_name">MokoLifeX</string>
-    <string name="cancel">Cancel</string>
-    <string name="confirm">Confirm</string>
-    <string name="save">Save</string>
-    <string name="mqtt_connecting">Connecting...</string>
-    <string name="mqtt_connect_failed">Connect Failed</string>
-    <string name="network_error">Network error,please check.</string>
-    <string name="device_offline">Device offline,please check.</string>
+
     <string name="device_overload">Device is overload,please check.</string>
     <string name="guide_center">Moko LifeX</string>
-    <string name="main_welcome">Start your moko lifeX</string>
-    <string name="main_add_device">Add Devices</string>
-    <string name="add_device_title">Add Device</string>
     <string name="add_plug_tips">Plug in the device and confirm \nthat indicator is blinking amber</string>
     <string name="not_blinking_amber_tips">My light is not blinking amber</string>
     <string name="plug_blinking">Indicator blink amber light</string>
@@ -22,25 +13,12 @@
     <string name="operation_steps_2">Step 2</string>
     <string name="operation_steps_2_content">Hold the button for 10s until the LED blink amber</string>
 
-
-    <string name="mqtt_verify_client_id_empty">ClientId error</string>
     <string name="mqtt_verify_device_id_empty">DeivceId error</string>
-    <string name="mqtt_verify_host">Host error</string>
-    <string name="mqtt_verify_port">Port range : 0~65535</string>
-    <string name="mqtt_verify_port_empty">Port error</string>
     <string name="mqtt_verify_catalogue">Catalogue error</string>
     <string name="mqtt_verify_file_path">File Path error</string>
-    <string name="mqtt_verify_ca">CA error</string>
-    <string name="mqtt_verify_topic_subscribe">Subscribed Topic error</string>
-    <string name="mqtt_verify_topic_publish">Published Topic error</string>
-    <string name="mqtt_verify_client_key">Client Key error</string>
-    <string name="mqtt_verify_client_cert">Client Cert error</string>
-    <string name="success">Success</string>
-    <string name="update_success">Update Success</string>
-    <string name="update_failed">Update Failed</string>
+
     <string name="switch_on">ON</string>
     <string name="switch_off">OFF</string>
-    <string name="device_state_offline">Offline</string>
     <string name="wifi_alert_title">Connect  to device\'s hotspot</string>
     <string name="wifi_alert_1_1">1.  Open"Setting</string>
     <string name="wifi_alert_1_2">> WLAN"</string>
@@ -50,13 +28,7 @@
     <string name="wifi_input_ssid">SSID:</string>
     <string name="wifi_input_password">Password:</string>
     <string name="wifi_verify_empty">Please enter a valid WIFI information</string>
-    <string name="mqtt_connecting_title">Connecting now</string>
-    <string name="mqtt_connecting_content">Make sure your phone and device are \nas close to your routers possible.</string>
-    <string name="mqtt_connecting_timeout">connect timeout</string>
 
-    <string name="modify_device_name_conn_success">Connection successful</string>
-    <string name="modify_device_name_done">Done</string>
-    <string name="modify_device_name_empty">Device name can\'t be blank</string>
     <string name="device_detail_switch_off">Socket is off</string>
     <string name="device_detail_switch_offline">Socket is offline</string>
     <string name="device_detail_switch_on">Socket is on</string>
@@ -75,43 +47,22 @@
     <string name="electricity_power_factor">Power Factor</string>
 
 
-    <string name="permission_storage_close_title">Storage permission is not available</string>
-    <string name="permission_storage_need_title">Please turn on Storage permissions</string>
     <string name="countdown_timer_on">Countdown timer (on)</string>
     <string name="countdown_timer_off">Countdown timer (off)</string>
 
     <string name="more_title">More</string>
     <string name="more_modify_name">Modify device name</string>
-    <string name="more_modify_name_title">Edit Local Name</string>
-    <string name="more_modify_name_tips">Device name can\'t be blank</string>
-    <string name="more_device_info">Device information</string>
     <string name="more_new_firmware">Check update</string>
     <string name="more_modify_power_status">Power On Default Mode</string>
     <string name="more_remove_device">Remove Device</string>
     <string name="more_reset">Reset</string>
 
     <string name="device_info_title">Device Information</string>
-    <string name="device_info_company">Company Name</string>
-    <string name="device_info_date">Date of Manufacture</string>
     <string name="device_info_name">Product Model</string>
     <string name="device_info_version">Firmware Version</string>
     <string name="device_info_mac">Device Mac</string>
     <string name="device_info_no_statistics">The device does not have this function</string>
 
-    <string name="ensure">OK</string>
-    <string name="permission_storage_close_content">Please find it in cellphone setting- permission, and allow MokoLifeX use the Storage and location permission</string>
-    <string name="permission_ble_close_content">Please find it in cellphone setting- permission, and allow MokoLifeX use the bluetooth and location permission</string>
-    <string name="permission_open">OK</string>
-    <string name="permission_storage_need_content">MokoLifeX requires access to Storage and location permission. If the permissions are not on, MokoLifeX cannot be used normally.</string>
-    <string name="location_need_title">Turn on Location permission</string>
-    <string name="location_need_content">After that, MokoLifeX could search and connect with the device</string>
-    <string name="permission_location_close_content">Please find it in cellphone setting- permission, and allow MokoLifeX use the Location permission</string>
-    <string name="permission_location_need_content">MokoLifeX requires access to Location permission. If the permissions are not on, MokoLifeX cannot be used normally.</string>
-    <string name="permission_ble_content">MokoLifeX requires access to bluetooth scan contract and location permission. If the permissions are not on, MokoLifeX cannot be used normally.</string>
-    <string name="company_website">www.mokosmart.com</string>
-    <string name="version_info">Version:%s</string>
-    <string name="about_moko_name">MOKO TECHNOLOGY LTD.</string>
-    <string name="setting_syncing">syncing</string>
     <string name="channel_domain"><![CDATA[Channel & Domain]]></string>
     <string name="channel_domain_tips"><![CDATA[Note: Configure 2.4G&5G channel by selecting your domain, channels will be matched according to the domain]]></string>
 
@@ -145,5 +96,4 @@
         <item>Cyan</item>
         <item>Purple</item>
     </string-array>
-
 </resources>

@@ -17,16 +17,16 @@ public class DeviceAdapter extends BaseQuickAdapter<MokoDevice, BaseViewHolder> 
     @Override
     protected void convert(BaseViewHolder holder, MokoDevice device) {
         if (!device.isOnline) {
-            holder.setImageResource(R.id.iv_switch, R.drawable.checkbox_close);
+            holder.setImageResource(R.id.iv_switch, R.drawable.ic_checkbox_close);
             holder.setText(R.id.tv_device_switch, R.string.device_state_offline);
             holder.setTextColor(R.id.tv_device_switch, ContextCompat.getColor(mContext, R.color.grey_cccccc));
         } else {
             if (!device.isOverload && !device.isOvercurrent && !device.isOvervoltage) {
-                holder.setImageResource(R.id.iv_switch, device.on_off ? R.drawable.checkbox_open : R.drawable.checkbox_close);
+                holder.setImageResource(R.id.iv_switch, device.on_off ? R.drawable.ic_checkbox_open : R.drawable.ic_checkbox_close);
                 holder.setText(R.id.tv_device_switch, device.on_off ? R.string.switch_on : R.string.switch_off);
                 holder.setTextColor(R.id.tv_device_switch, ContextCompat.getColor(mContext, device.on_off ? R.color.blue_0188cc : R.color.grey_cccccc));
             } else {
-                holder.setImageResource(R.id.iv_switch, R.drawable.checkbox_close);
+                holder.setImageResource(R.id.iv_switch, R.drawable.ic_checkbox_close);
                 String overStatus = "";
                 if (device.isOverload) {
                     overStatus = "Overload";

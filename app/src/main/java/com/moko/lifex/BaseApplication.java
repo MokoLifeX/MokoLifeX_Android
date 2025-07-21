@@ -14,10 +14,9 @@ import com.elvishew.xlog.printer.AndroidPrinter;
 import com.elvishew.xlog.printer.Printer;
 import com.elvishew.xlog.printer.file.FilePrinter;
 import com.elvishew.xlog.printer.file.naming.ChangelessFileNameGenerator;
+import com.moko.ble.lib.log.ClearLogBackStrategy;
+import com.moko.lib.mqtt.MQTTSupport;
 import com.moko.lifex.utils.IOUtils;
-import com.moko.support.MQTTSupport;
-import com.moko.lifex.utils.ClearLogBackStrategy;
-import com.moko.support.SocketSupport;
 
 import java.io.File;
 import java.io.PrintWriter;

@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.FragmentGeneralDeviceBinding;
-import com.moko.lifex.utils.ToastUtils;
 
 import androidx.fragment.app.Fragment;
 

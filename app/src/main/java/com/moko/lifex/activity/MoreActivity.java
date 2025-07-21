@@ -16,28 +16,28 @@ import com.elvishew.xlog.XLog;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.moko.lib.mqtt.MQTTSupport;
+import com.moko.lib.mqtt.event.MQTTMessageArrivedEvent;
+import com.moko.lib.mqtt.event.MQTTPublishFailureEvent;
+import com.moko.lib.mqtt.event.MQTTPublishSuccessEvent;
+import com.moko.lib.scannerui.dialog.AlertMessageDialog;
+import com.moko.lib.scannerui.dialog.CustomDialog;
+import com.moko.lib.scannerui.utils.ToastUtils;
 import com.moko.lifex.AppConstants;
 import com.moko.lifex.R;
 import com.moko.lifex.base.BaseActivity;
 import com.moko.lifex.databinding.ActivityMoreBinding;
 import com.moko.lifex.db.DBTools;
-import com.moko.lifex.dialog.AlertMessageDialog;
-import com.moko.lifex.dialog.CustomDialog;
 import com.moko.lifex.dialog.ResetDialog;
 import com.moko.lifex.entity.MokoDevice;
 import com.moko.lifex.utils.SPUtiles;
-import com.moko.lifex.utils.ToastUtils;
 import com.moko.support.MQTTConstants;
-import com.moko.support.MQTTSupport;
 import com.moko.support.entity.MQTTConfig;
 import com.moko.support.entity.MsgCommon;
 import com.moko.support.entity.OverloadInfo;
 import com.moko.support.event.DeviceDeletedEvent;
 import com.moko.support.event.DeviceModifyNameEvent;
 import com.moko.support.event.DeviceOnlineEvent;
-import com.moko.support.event.MQTTMessageArrivedEvent;
-import com.moko.support.event.MQTTPublishFailureEvent;
-import com.moko.support.event.MQTTPublishSuccessEvent;
 import com.moko.support.handler.MQTTMessageAssembler;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -166,7 +166,7 @@ public class MoreActivity extends BaseActivity<ActivityMoreBinding> {
     }
 
     public void onModifyNameClick(View view) {
-        View content = LayoutInflater.from(this).inflate(R.layout.modify_name, null);
+        View content = LayoutInflater.from(this).inflate(R.layout.layout_modify_name, null);
         final EditText etDeviceName = content.findViewById(R.id.et_device_name);
         String deviceName = mBind.tvDeviceName.getText().toString();
         etDeviceName.setText(deviceName);
