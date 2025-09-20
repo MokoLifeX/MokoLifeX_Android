@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdk 28
         targetSdk 35
-        versionCode 123
-        versionName "1.2.3"
+        versionCode 124
+        versionName "1.2.4"
         def formatDate = new Date().format("yyyyMMddHHmm")
         setProperty("archivesBaseName", "MokoLifeX_${versionName}_${formatDate}")
     }
@@ -45,11 +45,12 @@ android {
 dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation project(path: ':mokosupport')
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.29'
     implementation 'com.github.li-xiaojun:XPopup:2.10.0'
     implementation 'com.github.Carbs0126:NumberPickerView:master-SNAPSHOT'
 //    implementation 'org.apache.poi:poi:5.2.3'
 //    implementation 'org.apache.poi:poi-ooxml:5.2.3'
-    implementation 'com.github.MOKO-Android-Base-Library:MKScannerUILib:1.0.2'
+    implementation 'com.github.MOKO-Android-Base-Library:MKScannerUILib:1.0.3'
     implementation 'com.github.MOKO-Android-Base-Library:MKMqttLib:1.0.1'
 }
 
